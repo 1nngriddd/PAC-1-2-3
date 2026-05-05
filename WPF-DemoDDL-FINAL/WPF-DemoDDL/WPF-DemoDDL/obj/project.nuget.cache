@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "0tn8WfWW8vI=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\HP\\source\\repos\\WPF-DemoDDL\\WPF-DemoDDL\\WPF-DemoDDL.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\HP\\.nuget\\packages\\extended.wpf.toolkit\\5.0.0\\extended.wpf.toolkit.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

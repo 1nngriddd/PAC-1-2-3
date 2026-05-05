@@ -1,0 +1,78 @@
+﻿using System.ComponentModel;
+using System.Text.RegularExpressions;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
+
+namespace WPF_DemoDDL
+{
+    [ToolboxItem(true)]
+    public partial class EmailTextBox : UserControl
+    {
+        public EmailTextBox()
+        {
+            InitializeComponent();
+            // Per defecte, abans d'escriure, no volem que surti cap error al tooltip
+            TooltipMessage = "Introdueix el teu correu electrònic";
+        }
+
+        // 1. DependencyProperty per l'EMAIL (Requisit obligatori)
+        public static readonly DependencyProperty EmailProperty =
+            DependencyProperty.Register("Email", typeof(string), typeof(EmailTextBox),
+            new FrameworkPropertyMetadata(string.Empty, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
+
+        public string Email
+        {
+            get => (string)GetValue(EmailProperty);
+            set => SetValue(EmailProperty, value);
+        }
+
+        // 2. DependencyProperty per al TOOLTIP (Punt extra)
+        public static readonly DependencyProperty TooltipMessageProperty =
+            DependencyProperty.Register("TooltipMessage", typeof(string), typeof(EmailTextBox),
+            new PropertyMetadata(string.Empty));
+
+        public string TooltipMessage
+        {
+            get => (string)GetValue(TooltipMessageProperty);
+            set => SetValue(TooltipMessageProperty, value);
+        }
+
+        // 3. Propietat IsValid (Requisit obligatori per saber si està bé)
+        public bool IsValid { get; private set; }
+
+        // 4. Mètode que s'executa quan l'usuari fa clic fora del camp (LostFocus)
+        private void InternalTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            ValidateEmail();
+        }
+
+        // 5. La lògica de validació proposada pel professor a la PAC
+        private void ValidateEmail()
+        {
+            // Validem fent servir la funció auxiliar IsValidEmail
+            if (string.IsNullOrEmpty(Email) || !IsValidEmail(Email))
+            {
+                // Si és incorrecte: Canviem missatge i posem vora vermella
+                TooltipMessage = "Email no vàlid. Format esperat: usuari@domini.com";
+                MainBorder.BorderBrush = Brushes.Red; // Adaptat al nostre disseny de vores
+                IsValid = false;
+            }
+            else
+            {
+                // Si és correcte: Canviem missatge i tornem al gris
+                TooltipMessage = "Email correcte.";
+                MainBorder.BorderBrush = new SolidColorBrush(Color.FromRgb(171, 173, 179));
+                IsValid = true;
+            }
+        }
+
+        // 6. Funció amb l'expressió regular
+        private bool IsValidEmail(string email)
+        {
+            // Aquest és el patró exacte que exigeix l'enunciat [cite: 153, 270]
+            var regex = new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
+            return regex.IsMatch(email);
+        }
+    }
+}

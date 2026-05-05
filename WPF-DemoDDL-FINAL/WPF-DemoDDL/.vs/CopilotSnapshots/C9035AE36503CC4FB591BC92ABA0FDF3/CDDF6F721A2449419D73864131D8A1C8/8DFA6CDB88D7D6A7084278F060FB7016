@@ -1,0 +1,87 @@
+﻿using System.ComponentModel;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using Xceed.Wpf.Toolkit;
+
+namespace WPF_DemoDDL
+{
+    /// <summary>
+    /// Interaction logic for UserControl1.xaml
+    /// </summary>
+    [ToolboxItem(true)]
+    public partial class MinLengthTextBox : UserControl
+    {
+        public MinLengthTextBox() => InitializeComponent();
+        // DependencyProperty per al Text (Propietat per a WPF)
+
+        // Si la propietat no es DependencyProperty, no es pot fer el binding a la propietat Text del control. Això és perquè les propietats dependents permeten que el sistema de lligams de dades (data binding) de WPF funcioni correctament, i també permeten que les propietats siguin notificades quan canvien, cosa que és essencial per a la funcionalitat del control.
+        public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
+            "Text", //nom de la propietat, per a no liarse amb el nom de la variable, ficar el mateix nom amb property radere. TextProperty
+            typeof(string), //tipus de la propietat
+            typeof(MinLengthTextBox), //Tipus del objecte que la conte
+            new PropertyMetadata(string.Empty));  //valor per defecte
+
+        public string Text
+        {
+            get { return (string)GetValue(TextProperty); } //Obtenim el valor de la propietat Text
+            set { SetValue(TextProperty, value); } //Assignem el valor a la propietat Text
+        }
+
+        // DependencyProperty per a la màscara (Propietat per a WPF), en aquest cas per a la longitud mínima
+        public static readonly DependencyProperty MinLengthProperty = DependencyProperty.Register(
+            "MinLength",
+            typeof(int),
+            typeof(MinLengthTextBox),
+            new PropertyMetadata(3)); //Per defecte demanarem 3 caràcters
+        public int MinLength
+        {           //despres de crear la propietat dependent, es crea la propietat
+            get { return (int)GetValue(MinLengthProperty); }
+            set { SetValue(MinLengthProperty, value); }
+        }
+
+        // Signatura de l'esdeveniment. S'executa CADA COP que el text canvia dins del TextBox
+        private void InternalTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var textBox = sender as TextBox; //Convertim el sender a TextBox, ja que el sender és el control que ha generat l'esdeveniment, en aquest cas el TextBox intern del UserControl.
+            
+            if (textBox == null) return; //Si el textBox és null, sortim del mètode. Això és una mesura de seguretat per evitar errors en cas que el sender no sigui un TextBox.
+
+            // Fem la comprovació lògica principal: comparem la llargada actual del text amb la propietat MinLength que hem definit.
+            // Noteu que 'MinLength' aquí és la DependencyProperty que hem creat abans.
+            if (textBox.Text.Length >= MinLength)
+            {
+                // Cas CORRECTE: Vora gris segons l'estil estàndard
+                MainBorder.BorderBrush = new SolidColorBrush(Color.FromRgb(171, 173, 179));
+            }
+            else
+            {
+                // Cas INCORRECTE: Vora vermella segons l'objectiu de la PAC 
+                MainBorder.BorderBrush = Brushes.Red;
+            }
+        }
+
+        private void InternalTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            // Regex curta: \p{L} inclou totes les lletres amb accents, ñ, ç, etc.
+            // L'espai (\s) 'opcional: permet afegir espais entre paraules , però no al principi ni al final del text.
+            Regex regex = new Regex(@"^[\p{L}\s]+$");
+
+            // Si el caràcter premut no coincideix amb el patró bloquegem l'entrada
+            if (!regex.IsMatch(e.Text))
+            {
+                e.Handled = true; // Bloqueja caràcters que no siguin lletres
+            }
+        }
+
+    }
+
+}

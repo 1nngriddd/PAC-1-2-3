@@ -1,0 +1,45 @@
+<UserControl x:Class="WPF_DemoDDL.MinLengthTextBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             MinHeight="32" d:DesignWidth="250">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/WPF-DemoDDL;component/Themes/SharedStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <StackPanel Margin="0,5">
+
+        <Grid>
+            <TextBox x:Name="InternalTextBox" 
+                     VerticalContentAlignment="Center"
+                     TextChanged="InternalTextBox_TextChanged"
+                     LostFocus="InternalTextBox_LostFocus"
+                     PreviewTextInput="InternalTextBox_PreviewTextInput"
+                     PreviewKeyDown="InternalTextBox_PreviewKeyDown"
+                     Text="{Binding Text, RelativeSource={RelativeSource AncestorType=UserControl}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                     HorizontalAlignment="Stretch" />
+                     
+            <TextBlock x:Name="PlaceholderLabel"
+                       Text="{Binding Placeholder, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                       Foreground="#9CA3AF"
+                       Margin="12,0,0,0"
+                       VerticalAlignment="Center"
+                       IsHitTestVisible="False"
+                       FontStyle="Italic"/>
+        </Grid>
+
+        <TextBlock x:Name="ValidationMessage"
+                   FontSize="11"
+                   Margin="4,2,0,0"
+                   Foreground="{DynamicResource ValidationTextBrush}"
+                   Text="Mínim 2 caràcters." />
+
+    </StackPanel>
+</UserControl>

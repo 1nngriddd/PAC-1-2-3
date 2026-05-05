@@ -1,0 +1,147 @@
+﻿using System.Text.RegularExpressions;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
+
+namespace WPF_DemoDDL
+{
+    public partial class DNITextBox : UserControl
+    {
+        // 1. DependencyProperty per al DNI (Permet el Binding Two-Way)
+        public static readonly DependencyProperty DniProperty = DependencyProperty.Register(
+            "Dni",
+            typeof(string),
+            typeof(DNITextBox),
+            new FrameworkPropertyMetadata(
+                string.Empty,
+                FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
+                OnDniChanged)); // Mètode que es dispara si el DNI canvia des del ViewModel
+
+        public string Dni
+        {
+            get => (string)GetValue(DniProperty);
+            set => SetValue(DniProperty, value);
+        }
+
+        // 2. DependencyProperty per a IsValid (permetrà saber des de fora si és vàlid)
+        public static readonly DependencyProperty IsValidProperty = DependencyProperty.Register(
+            "IsValid",
+            typeof(bool),
+            typeof(DNITextBox),
+            new PropertyMetadata(false));
+
+        public bool IsValid
+        {
+            get => (bool)GetValue(IsValidProperty);
+            private set => SetValue(IsValidProperty, value);
+        }
+
+        // EXTRA: Propietat pel Placeholder
+        public static readonly DependencyProperty PlaceholderProperty = DependencyProperty.Register(
+            "Placeholder", typeof(string), typeof(DNITextBox), new PropertyMetadata("Ex: 12345678A"));
+
+        public string Placeholder
+        {
+            get => (string)GetValue(PlaceholderProperty);
+            set => SetValue(PlaceholderProperty, value);
+        }
+
+        public DNITextBox()
+        {
+            InitializeComponent();
+        }
+
+        // Mètode que es crida automàticament si el DNI canvia des del Binding
+        private static void OnDniChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var control = (DNITextBox)d;
+            var newValue = (string)e.NewValue;
+
+            // Actualitzem el textbox visual sense provocar un bucle
+            if (control.InnerTextBox.Text != newValue)
+            {
+                control.InnerTextBox.Text = newValue;
+            }
+
+            // Validem el nou valor
+            control.Validate(newValue);
+        }
+
+        // Mètode que es crida quan l'usuari tecleja a la pantalla
+        private void InnerTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            // Actualitzem la DependencyProperty, la qual cosa dispararà la validació
+            Dni = InnerTextBox.Text;
+
+            // Mostrar o amagar el Placeholder segons si hi ha text
+            PlaceholderLabel.Visibility = string.IsNullOrEmpty(Dni) ? Visibility.Visible : Visibility.Collapsed;
+        }
+
+        // Lògica de Validació i canvi de colors
+        private void Validate(string dni)
+        {
+            if (string.IsNullOrWhiteSpace(dni))
+            {
+                IsValid = false;
+                ResetVisuals();
+                return;
+            }
+
+            // Validació 1: El format ha de ser 8 números i 1 lletra (majúscula o minúscula)
+            var regex = new Regex(@"^\d{8}[a-zA-Z]$");
+
+            if (regex.IsMatch(dni))
+            {
+                // Validació 2: Comprovem si la lletra és matemàticament correcta
+                IsValid = CheckDniLetter(dni);
+            }
+            else
+            {
+                IsValid = false;
+            }
+
+            // Feedback visual
+            if (!IsValid)
+            {
+                // Vores vermelles si no és vàlid
+                InnerTextBox.BorderBrush = Brushes.Red;
+                InnerTextBox.BorderThickness = new Thickness(2);
+                InnerTextBox.Background = new SolidColorBrush(Color.FromArgb(20, 255, 0, 0)); // Fons vermell molt claret
+            }
+            else
+            {
+                ResetVisuals(); // Tot correcte
+            }
+        }
+
+        private void ResetVisuals()
+        {
+            // Tornem a l'estil per defecte de WPF
+            InnerTextBox.ClearValue(Control.BorderBrushProperty);
+            InnerTextBox.ClearValue(Control.BorderThicknessProperty);
+            InnerTextBox.ClearValue(Control.BackgroundProperty);
+        }
+
+        // Algoritme real per calcular la lletra del DNI
+        private bool CheckDniLetter(string dni)
+        {
+            try
+            {
+                string numbers = dni.Substring(0, 8);
+                string letter = dni.Substring(8, 1).ToUpper();
+
+                string validLetters = "TRWAGMYFPDXBNJZSQVHLCKE";
+                int numbersInt = int.Parse(numbers);
+                int index = numbersInt % 23;
+
+                string expectedLetter = validLetters[index].ToString();
+
+                return letter == expectedLetter;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+    }
+}

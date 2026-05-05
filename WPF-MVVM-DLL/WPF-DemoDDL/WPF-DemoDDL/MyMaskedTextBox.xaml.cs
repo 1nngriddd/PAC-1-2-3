@@ -1,0 +1,104 @@
+using System.ComponentModel;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using Xceed.Wpf.Toolkit;
+
+namespace WPF_DemoDDL
+{
+    /// <summary>
+    /// Interaction logic for UserControl1.xaml
+    /// </summary>
+    [ToolboxItem(true)]
+    public partial class MyMaskedTextBox : UserControl
+    {
+        public MyMaskedTextBox() => InitializeComponent();
+        // DependencyProperty per al Text (Propietat per a WPF)
+
+        // Si la propietat no es DependencyProperty, no es pot fer el binding a la propietat Text del control
+        public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
+            "Text", //nom de la propietat, per a no liarse amb el nom de la variable, ficar el mateix nom amb property radere. TextProperty
+            typeof(string), //tipus de la propietat
+            typeof(MaskedTextBox), //Tipus del objecte que la conte
+            new PropertyMetadata(string.Empty));  //valor per defecte
+
+        public string Text{
+            get { return (string)GetValue(TextProperty); } //Obtenim el valor de la propietat Text
+            set { SetValue(TextProperty, value); } //Assignem el valor a la propietat Text
+        }
+
+        // DependencyProperty per a la màscara (Propietat per a WPF)
+        public static readonly DependencyProperty MaskProperty= DependencyProperty.Register(
+            "Mask",
+            typeof(string),
+            typeof(MaskedTextBox),
+            new PropertyMetadata(string.Empty));
+        public string Mask{           //despres de crear la propietat dependent, es crea la propietat
+            get { return (string)GetValue(MaskProperty); }
+            set { SetValue(MaskProperty, value); }
+        }
+
+        private void MyMaskedTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            var textBox = sender as TextBox; // Cast del sender a TextBox
+            var currentText = textBox?.Text; // Obtenim el text actual del TextBox   currentText "d"  e "a"
+            var newText = currentText + e.Text;  // Concatenem el text actual amb el nou text que s'està intentant introduir, per a comprovar si el nou text complirà la màscara. newText "da"
+            var isTextValid = IsTextValid(newText); 
+            // Si el nou text no és vàlid, modifiquem el fons del control
+            if (isTextValid && newText.Length == Mask.Length)
+            {
+                textBox.Background = System.Windows.Media.Brushes.LightGreen;
+            }
+            else if (isTextValid)
+            {
+                textBox.Background = System.Windows.Media.Brushes.White;
+            }
+            else if (currentText.Length == Mask.Length)
+            {
+                textBox.Background = System.Windows.Media.Brushes.LightGreen;
+            }
+            else
+            {
+                textBox.Background = System.Windows.Media.Brushes.Red;
+            }
+            // Si el nou text no és vàlid, no permetem l'entrada i tallem l'event perquè no es propagui
+            e.Handled = !isTextValid;
+        }
+        private bool IsTextValid(string text)
+        {
+            if (string.IsNullOrEmpty(Mask)) return true; // Si no hi ha màscara, qualsevol text és vàlid
+            if (text.Length > Mask.Length) return false; // Si el text és més llarg que la màscara, no és vàlid
+            var subMask = Mask.Substring(0, text.Length); //crea una submasacara de la llargada del text introduit, per a comprovar el text actual
+            var regexPattern = ConvertMaskToRegex(subMask);
+            return Regex.IsMatch(text, regexPattern);
+        }
+        private string ConvertMaskToRegex(string mask)
+        {
+            string pattern = "^";
+            foreach (var character in mask)
+            {
+                switch (character)
+                {
+                    case '0': pattern += "[0-9]"; break; // Només dígits
+                    case 'A': pattern += "[A-Z]"; break; // Només lletres majúscules
+                    case 'a': pattern += "[a-z]"; break; // Només lletres minúscules
+                    case 'Z': pattern += "[a-zA-Z]"; break; // Només lletres
+                    case 'z': pattern += "[a-zA-Z]"; break; // Només lletres
+                    case '9': pattern += "[0-9a-zA-Z]"; break; // Dígits o lletres
+                    default: pattern += Regex.Escape(character.ToString()); break; // Caràcters literals
+                }
+            }
+            pattern += "$";
+            return pattern;
+        }
+    }
+
+}
