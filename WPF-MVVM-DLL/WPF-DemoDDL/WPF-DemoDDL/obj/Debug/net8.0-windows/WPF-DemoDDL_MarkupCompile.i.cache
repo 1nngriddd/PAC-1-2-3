@@ -4,7 +4,7 @@
 library
 C#
 .cs
-C:\Users\HP\source\repos\WPF-DemoDDL\WPF-DemoDDL\obj\Debug\net8.0-windows\
+C:\02_DAM\0488.Desenvolupament d'Interfícies\Projectes\PAC-1-2-3\WPF-MVVM-DLL\WPF-DemoDDL\WPF-DemoDDL\obj\Debug\net8.0-windows\
 WPF_DemoDDL
 none
 false
@@ -13,8 +13,8 @@ TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR
 6-635052742
 
 9-697066903
-203-985282935
+2031633436857
 DNITextBox.xaml;EmailTextBox.xaml;MinLengthTextBox.xaml;MyMaskedTextBox.xaml;PhoneTextBox.xaml;Themes\SharedStyles.xaml;
 
-False
+True
 

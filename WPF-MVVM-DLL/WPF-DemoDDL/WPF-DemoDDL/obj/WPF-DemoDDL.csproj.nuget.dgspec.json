@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\HP\\source\\repos\\WPF-DemoDDL\\WPF-DemoDDL\\WPF-DemoDDL.csproj": {}
+    "C:\\02_DAM\\0488.Desenvolupament d'Interfícies\\Projectes\\PAC-1-2-3\\WPF-MVVM-DLL\\WPF-DemoDDL\\WPF-DemoDDL\\WPF-DemoDDL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\HP\\source\\repos\\WPF-DemoDDL\\WPF-DemoDDL\\WPF-DemoDDL.csproj": {
+    "C:\\02_DAM\\0488.Desenvolupament d'Interfícies\\Projectes\\PAC-1-2-3\\WPF-MVVM-DLL\\WPF-DemoDDL\\WPF-DemoDDL\\WPF-DemoDDL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\source\\repos\\WPF-DemoDDL\\WPF-DemoDDL\\WPF-DemoDDL.csproj",
+        "projectUniqueName": "C:\\02_DAM\\0488.Desenvolupament d'Interfícies\\Projectes\\PAC-1-2-3\\WPF-MVVM-DLL\\WPF-DemoDDL\\WPF-DemoDDL\\WPF-DemoDDL.csproj",
         "projectName": "WPF-DemoDDL",
-        "projectPath": "C:\\Users\\HP\\source\\repos\\WPF-DemoDDL\\WPF-DemoDDL\\WPF-DemoDDL.csproj",
-        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\source\\repos\\WPF-DemoDDL\\WPF-DemoDDL\\obj\\",
+        "projectPath": "C:\\02_DAM\\0488.Desenvolupament d'Interfícies\\Projectes\\PAC-1-2-3\\WPF-MVVM-DLL\\WPF-DemoDDL\\WPF-DemoDDL\\WPF-DemoDDL.csproj",
+        "packagesPath": "C:\\Users\\vmore\\.nuget\\packages\\",
+        "outputPath": "C:\\02_DAM\\0488.Desenvolupament d'Interfícies\\Projectes\\PAC-1-2-3\\WPF-MVVM-DLL\\WPF-DemoDDL\\WPF-DemoDDL\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\vmore\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -44,7 +40,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "10.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0-windows7.0": {
@@ -74,7 +70,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.309/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

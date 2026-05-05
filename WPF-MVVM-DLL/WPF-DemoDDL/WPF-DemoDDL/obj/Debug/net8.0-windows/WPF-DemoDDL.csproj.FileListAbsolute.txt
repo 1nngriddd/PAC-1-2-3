@@ -24,3 +24,30 @@ C:\Users\HP\source\repos\WPF-DemoDDL\WPF-DemoDDL\obj\Debug\net8.0-windows\WPF-De
 C:\Users\HP\source\repos\WPF-DemoDDL\WPF-DemoDDL\obj\Debug\net8.0-windows\refint\WPF-DemoDDL.dll
 C:\Users\HP\source\repos\WPF-DemoDDL\WPF-DemoDDL\obj\Debug\net8.0-windows\WPF-DemoDDL.pdb
 C:\Users\HP\source\repos\WPF-DemoDDL\WPF-DemoDDL\obj\Debug\net8.0-windows\ref\WPF-DemoDDL.dll
+C:\02_DAM\0488.Desenvolupament d'Interfícies\Projectes\PAC-1-2-3\WPF-MVVM-DLL\WPF-DemoDDL\WPF-DemoDDL\bin\Debug\net8.0-windows\WPF-DemoDDL.deps.json
+C:\02_DAM\0488.Desenvolupament d'Interfícies\Projectes\PAC-1-2-3\WPF-MVVM-DLL\WPF-DemoDDL\WPF-DemoDDL\bin\Debug\net8.0-windows\WPF-DemoDDL.dll
+C:\02_DAM\0488.Desenvolupament d'Interfícies\Projectes\PAC-1-2-3\WPF-MVVM-DLL\WPF-DemoDDL\WPF-DemoDDL\bin\Debug\net8.0-windows\WPF-DemoDDL.pdb
+C:\02_DAM\0488.Desenvolupament d'Interfícies\Projectes\PAC-1-2-3\WPF-MVVM-DLL\WPF-DemoDDL\WPF-DemoDDL\obj\Debug\net8.0-windows\WPF-DemoDDL.csproj.AssemblyReference.cache
+C:\02_DAM\0488.Desenvolupament d'Interfícies\Projectes\PAC-1-2-3\WPF-MVVM-DLL\WPF-DemoDDL\WPF-DemoDDL\obj\Debug\net8.0-windows\DNITextBox.baml
+C:\02_DAM\0488.Desenvolupament d'Interfícies\Projectes\PAC-1-2-3\WPF-MVVM-DLL\WPF-DemoDDL\WPF-DemoDDL\obj\Debug\net8.0-windows\EmailTextBox.baml
+C:\02_DAM\0488.Desenvolupament d'Interfícies\Projectes\PAC-1-2-3\WPF-MVVM-DLL\WPF-DemoDDL\WPF-DemoDDL\obj\Debug\net8.0-windows\MinLengthTextBox.baml
+C:\02_DAM\0488.Desenvolupament d'Interfícies\Projectes\PAC-1-2-3\WPF-MVVM-DLL\WPF-DemoDDL\WPF-DemoDDL\obj\Debug\net8.0-windows\PhoneTextBox.baml
+C:\02_DAM\0488.Desenvolupament d'Interfícies\Projectes\PAC-1-2-3\WPF-MVVM-DLL\WPF-DemoDDL\WPF-DemoDDL\obj\Debug\net8.0-windows\Themes\SharedStyles.baml
+C:\02_DAM\0488.Desenvolupament d'Interfícies\Projectes\PAC-1-2-3\WPF-MVVM-DLL\WPF-DemoDDL\WPF-DemoDDL\obj\Debug\net8.0-windows\DNITextBox.g.cs
+C:\02_DAM\0488.Desenvolupament d'Interfícies\Projectes\PAC-1-2-3\WPF-MVVM-DLL\WPF-DemoDDL\WPF-DemoDDL\obj\Debug\net8.0-windows\EmailTextBox.g.cs
+C:\02_DAM\0488.Desenvolupament d'Interfícies\Projectes\PAC-1-2-3\WPF-MVVM-DLL\WPF-DemoDDL\WPF-DemoDDL\obj\Debug\net8.0-windows\MinLengthTextBox.g.cs
+C:\02_DAM\0488.Desenvolupament d'Interfícies\Projectes\PAC-1-2-3\WPF-MVVM-DLL\WPF-DemoDDL\WPF-DemoDDL\obj\Debug\net8.0-windows\MyMaskedTextBox.g.cs
+C:\02_DAM\0488.Desenvolupament d'Interfícies\Projectes\PAC-1-2-3\WPF-MVVM-DLL\WPF-DemoDDL\WPF-DemoDDL\obj\Debug\net8.0-windows\PhoneTextBox.g.cs
+C:\02_DAM\0488.Desenvolupament d'Interfícies\Projectes\PAC-1-2-3\WPF-MVVM-DLL\WPF-DemoDDL\WPF-DemoDDL\obj\Debug\net8.0-windows\WPF-DemoDDL_MarkupCompile.cache
+C:\02_DAM\0488.Desenvolupament d'Interfícies\Projectes\PAC-1-2-3\WPF-MVVM-DLL\WPF-DemoDDL\WPF-DemoDDL\obj\Debug\net8.0-windows\WPF-DemoDDL_MarkupCompile.lref
+C:\02_DAM\0488.Desenvolupament d'Interfícies\Projectes\PAC-1-2-3\WPF-MVVM-DLL\WPF-DemoDDL\WPF-DemoDDL\obj\Debug\net8.0-windows\MyMaskedTextBox.baml
+C:\02_DAM\0488.Desenvolupament d'Interfícies\Projectes\PAC-1-2-3\WPF-MVVM-DLL\WPF-DemoDDL\WPF-DemoDDL\obj\Debug\net8.0-windows\WPF-DemoDDL.g.resources
+C:\02_DAM\0488.Desenvolupament d'Interfícies\Projectes\PAC-1-2-3\WPF-MVVM-DLL\WPF-DemoDDL\WPF-DemoDDL\obj\Debug\net8.0-windows\WPF-DemoDDL.GeneratedMSBuildEditorConfig.editorconfig
+C:\02_DAM\0488.Desenvolupament d'Interfícies\Projectes\PAC-1-2-3\WPF-MVVM-DLL\WPF-DemoDDL\WPF-DemoDDL\obj\Debug\net8.0-windows\WPF-DemoDDL.AssemblyInfoInputs.cache
+C:\02_DAM\0488.Desenvolupament d'Interfícies\Projectes\PAC-1-2-3\WPF-MVVM-DLL\WPF-DemoDDL\WPF-DemoDDL\obj\Debug\net8.0-windows\WPF-DemoDDL.AssemblyInfo.cs
+C:\02_DAM\0488.Desenvolupament d'Interfícies\Projectes\PAC-1-2-3\WPF-MVVM-DLL\WPF-DemoDDL\WPF-DemoDDL\obj\Debug\net8.0-windows\WPF-DemoDDL.csproj.CoreCompileInputs.cache
+C:\02_DAM\0488.Desenvolupament d'Interfícies\Projectes\PAC-1-2-3\WPF-MVVM-DLL\WPF-DemoDDL\WPF-DemoDDL\obj\Debug\net8.0-windows\WPF-DemoDDL.sourcelink.json
+C:\02_DAM\0488.Desenvolupament d'Interfícies\Projectes\PAC-1-2-3\WPF-MVVM-DLL\WPF-DemoDDL\WPF-DemoDDL\obj\Debug\net8.0-windows\WPF-DemoDDL.dll
+C:\02_DAM\0488.Desenvolupament d'Interfícies\Projectes\PAC-1-2-3\WPF-MVVM-DLL\WPF-DemoDDL\WPF-DemoDDL\obj\Debug\net8.0-windows\refint\WPF-DemoDDL.dll
+C:\02_DAM\0488.Desenvolupament d'Interfícies\Projectes\PAC-1-2-3\WPF-MVVM-DLL\WPF-DemoDDL\WPF-DemoDDL\obj\Debug\net8.0-windows\WPF-DemoDDL.pdb
+C:\02_DAM\0488.Desenvolupament d'Interfícies\Projectes\PAC-1-2-3\WPF-MVVM-DLL\WPF-DemoDDL\WPF-DemoDDL\obj\Debug\net8.0-windows\ref\WPF-DemoDDL.dll

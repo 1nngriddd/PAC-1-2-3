@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "0tn8WfWW8vI=",
+  "dgSpecHash": "9dMbZNQRS/U=",
   "success": true,
-  "projectFilePath": "C:\\Users\\HP\\source\\repos\\WPF-DemoDDL\\WPF-DemoDDL\\WPF-DemoDDL.csproj",
+  "projectFilePath": "C:\\02_DAM\\0488.Desenvolupament d'Interfícies\\Projectes\\PAC-1-2-3\\WPF-MVVM-DLL\\WPF-DemoDDL\\WPF-DemoDDL\\WPF-DemoDDL.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\HP\\.nuget\\packages\\extended.wpf.toolkit\\5.0.0\\extended.wpf.toolkit.5.0.0.nupkg.sha512"
+    "C:\\Users\\vmore\\.nuget\\packages\\extended.wpf.toolkit\\5.0.0\\extended.wpf.toolkit.5.0.0.nupkg.sha512"
   ],
   "logs": []
 }
