@@ -1,0 +1,29 @@
+﻿<Application x:Class="WPF_MVVM_SPA_Template.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:WPF_MVVM_SPA_Template"
+             xmlns:vm="clr-namespace:WPF_MVVM_SPA_Template.ViewModels"
+             xmlns:v="clr-namespace:WPF_MVVM_SPA_Template.Views"
+             StartupUri="MainWindow.xaml">
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Views/Themes/LightTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type vm:HomeViewModel}">
+                <v:HomeView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:CustomerViewModel}">
+                <v:CustomerView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:StatisticsViewModel}">
+                <v:StatisticsView />
+            </DataTemplate>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

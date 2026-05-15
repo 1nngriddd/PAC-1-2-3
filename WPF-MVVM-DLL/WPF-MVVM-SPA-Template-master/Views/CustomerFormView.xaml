@@ -1,0 +1,82 @@
+<UserControl x:Class="WPF_MVVM_SPA_Template.Views.CustomerFormView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:meusControls="clr-namespace:WPF_DemoDDL;assembly=WPF-DemoDDL"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <Grid Background="{DynamicResource MainBackground}" Margin="25">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Dades del Client" 
+                   FontSize="22" 
+                   FontWeight="Bold" 
+                   Foreground="{DynamicResource PrimaryTextColor}"
+                   Grid.ColumnSpan="2" 
+                   Margin="0,0,0,25" />
+
+        <Label Content="Nom:" Grid.Row="1" Grid.Column="0" Style="{StaticResource ModernLabelStyle}" VerticalAlignment="Top" Margin="0,12,5,0"/>
+        <meusControls:MinLengthTextBox Text="{Binding CurrentCustomer.FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                               MinLength="2"
+                               Placeholder="Ex: Joan"
+                               Grid.Row="1" Grid.Column="1"/>
+
+        <Label Content="Cognoms:" Grid.Row="2" Grid.Column="0" Style="{StaticResource ModernLabelStyle}" VerticalAlignment="Top" Margin="0,12,5,0"/>
+        <meusControls:MinLengthTextBox Text="{Binding CurrentCustomer.LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                               MinLength="2"
+                               Placeholder="Ex: Garcia Pérez"
+                               Grid.Row="2" Grid.Column="1"/>
+
+        <Label Content="DNI:" Grid.Row="3" Grid.Column="0" Style="{StaticResource ModernLabelStyle}" VerticalAlignment="Top" Margin="0,12,5,0"/>
+        <meusControls:DNITextBox Dni="{Binding CurrentCustomer.Dni, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         Placeholder="Ex: 12345678A"
+                         Grid.Row="3" Grid.Column="1" />
+
+        <Label Content="Email:" Grid.Row="4" Grid.Column="0" Style="{StaticResource ModernLabelStyle}" VerticalAlignment="Top" Margin="0,12,5,0"/>
+        <meusControls:EmailTextBox Email="{Binding CurrentCustomer.Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                           Grid.Row="4" Grid.Column="1" />
+
+        <Label Content="Telèfon:" Grid.Row="5" Grid.Column="0" Style="{StaticResource ModernLabelStyle}" VerticalAlignment="Top" Margin="0,12,5,0"/>
+        <meusControls:PhoneTextBox PhoneNumber="{Binding CurrentCustomer.Phone, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                           Grid.Row="5" Grid.Column="1" Loaded="PhoneTextBox_Loaded" />
+
+        <Label Content="Data Alta:" Grid.Row="6" Grid.Column="0" Style="{StaticResource ModernLabelStyle}"/>
+        <DatePicker SelectedDate="{Binding CurrentCustomer.DataAlta, UpdateSourceTrigger=PropertyChanged}" 
+                    Grid.Row="6" Grid.Column="1" 
+                    Style="{StaticResource ModernDatePickerStyle}"
+                    Language="ca-ES"/>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="7" Grid.Column="1" 
+            HorizontalAlignment="Right" Margin="0,30,0,0">
+
+            <Button Content="Guardar" 
+            Command="{Binding SaveCommand}"
+            Style="{StaticResource ModernPrimaryButtonStyle}"
+            Width="120"/>
+
+            <Button Content="Cancel·lar" 
+            Command="{Binding CancelCommand}"
+            Style="{StaticResource ModernDangerButtonStyle}"
+            Width="120"
+            Height="Auto"
+            FontSize="14"
+            FontWeight="SemiBold"
+            Padding="20,10"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

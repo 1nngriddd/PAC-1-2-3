@@ -76,7 +76,7 @@ namespace WPF_DemoDDL {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/WPF-DemoDDL;V1.0.0.0;component/phonetextbox.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/WPF-DemoDDL;component/phonetextbox.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\PhoneTextBox.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

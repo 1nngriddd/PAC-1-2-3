@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="2026-05-07" ReportInfo.Modified="05/07/2026 11:51:16" ReportInfo.CreatorVersion="2025.1.0.0">
+  <Styles>
+    <Style Name="FilaParell" Font="Arial, 10pt"/>
+  </Styles>
+  <Dictionary>
+    <JsonDataSourceConnection Name="Good connection" ConnectionString="rijcmlq8Sm46cpgh5Eu8vZd/IKSPzmlcQ+0m4LV3SAoXsNlOjsfsnoeyp2T/SkcLMS1dx7mf097qXZh30gwnrDF/jvD6W66cf7wElnz4Ad8Ckbee76tFYuk+TXwjZtKJsOKv6k5R9mGeTC7ZDTyyJWq6WRiXOTJDFTxG8LLyt3HFDZlnGcCvSsw+MzTxPl87gIIvylF85PQPgTUnIwS1nlmdH04SZgQRsdnA0R381mIGDksT/AEhCcrpZYTb8+QUZphKMQmR8DnKNYvvQxGULOPDE2r4tn/ciWXGe0gistep3BEXZUZgcuCuC0nwhC8e97mnvxaUMmaHOOerQQ0H44DITOPfEEqhy+Yo35aIeFcshVaN7T2/VevZ66uX8yM+cxOkhs+6vr8XvTDal+4smCHNsYCRFUrEnQ0sdEb54n1vdv3ZJsESa85PZIRf70EL2Z4hPNssar5yIJJOOVBV+DwVbxxfK+esBNukt8b41jqA5HEBBoC65vni5XejCEZoB4wWU9fdwNOdyIi/12m1uyzx32YvVRd6PJY/L4H1jjC2DAlDK8GhkrsUlZlU9nry7Ra72sThM18Sd2d8NOsu5VJYsaWH70+1+/g07uKKo2u/K4lcmTcwpAO7f5Kd2cfC+Ielmb52BlTuYCV6Ee04P14j+89nJNOgZ+BvO0zdHe8hZLv2wTZtLQ/OyZ+iwWjSUzlzmHbHbibL5mEvTFwzFXNbfEg/hw+IqRF7kebbwqXMY36b/bqUWI1BNi1gcV9hG9YCy4LV+CsZqzeyQvwuzhYSZRkRhK1jMCtAc5iVzJ9Kyl902shXIe5A0IEfqGacObahG9BpHgRJxWh7KcQhJSdyaFFHZDw/+1itj2If8gcpiVm1xcS260udybHC3VjgeyAx0dbY6/upkruL+8H1ZpIxaPIYMlGkFjc7Th3RAVrZtxoo+Q7Jl0smPQ+3BM8y8L00PKxfv4DG6mnC/DoguDDZ8zAXKms4yNn7+nryv4s6bFJmsizUQN0bjcMesY0LSa+p1nGozKC4SplDIJbnOywbL2utGdQYUifVj+6uXvV81rJcBdyiS+7Xm4lp6ymnwzDExRwYOZAKH31kmQTsNYFaxpI9E5GzqkFoA3cgqZVk6LVTIIsIdcRoFmEUWrz9zeZ8zS/vEeZN9fXyyy8ABf8iksQP7ZGfKxh0KhRjdz9fFhfn9W55HCwCYqJTTKmp3LVQfb/YTAGwwFffliA0FNIGI4yvyctNaAZL8v4uw8o7mW2McyHS9DVXv0CG5XJxvfj6wPuEbUXuItOb5fUKFDJFwiKpt1DtNRVtx6lKeu25swuGYE2IIf80Raj0I+5CKs42Pylv813fb5xsiO6ZDiHAc+Xag==">
+      <JsonTableDataSource Name="JSON1" DataType="FastReport.Utils.Json.JsonArray" Enabled="true" TableName="JSON">
+        <Column Name="index" DataType="System.Int32"/>
+        <Column Name="item" DataType="FastReport.JsonBase">
+          <Column Name="Id" DataType="System.Double"/>
+          <Column Name="Dni" DataType="System.String"/>
+          <Column Name="FirstName" DataType="System.String"/>
+          <Column Name="LastName" DataType="System.String"/>
+          <Column Name="Email" DataType="System.String"/>
+          <Column Name="Phone" DataType="System.String"/>
+          <Column Name="DataAlta" DataType="System.String"/>
+          <JsonTableDataSource Name="RendimentMensual" DataType="FastReport.JsonBase" Enabled="true">
+            <Column Name="index" DataType="System.Int32"/>
+            <Column Name="item" DataType="System.Object"/>
+            <Column Name="array" DataType="FastReport.JsonBase"/>
+          </JsonTableDataSource>
+        </Column>
+        <Column Name="array" DataType="FastReport.JsonBase"/>
+      </JsonTableDataSource>
+    </JsonDataSourceConnection>
+    <Total Name="TotalClients" TotalType="Count" Evaluator="Data1"/>
+  </Dictionary>
+  <ReportPage Name="Page1" LeftMargin="15" RightMargin="15" BottomMargin="15" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="680.4" Height="103.9">
+      <TextObject Name="txtTitol" Top="18.9" Width="680" Height="50" Text="LLISTAT DE CLIENTS" HorzAlign="Center" VertAlign="Center" Font="Georgia, 26pt, style=Bold"/>
+      <TextObject Name="txtSubtitol" Top="78.35" Width="680" Height="16" Text="iCustomer — Sistema de Gestió de Clients" HorzAlign="Center" VertAlign="Center" Font="Cambria, 9pt"/>
+      <TextObject Name="decorLinia" Top="72" Width="680" Height="5" Font="Arial, 10pt"/>
+      <TextObject Name="Text7" Width="207.9" Height="18.9" Text="Generat per:  [Environment.UserName]" VertAlign="Center" Font="Cambria, 8pt"/>
+      <TextObject Name="Text17" Left="340.2" Width="340" Height="20" Text="Generat el [DateTime.Now.ToString(&quot;dd/MM/yyyy&quot;)]" HorzAlign="Right" VertAlign="Center" Font="Cambria, 8pt"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="106.57" Width="680.4" Height="26">
+      <TextObject Name="hDni" Width="90" Height="26" Border.Lines="All" Text="DNI" HorzAlign="Center" VertAlign="Center" Font="Georgia, 9pt, style=Bold"/>
+      <TextObject Name="hNom" Left="90" Width="100" Height="26" Border.Lines="All" Text="Nom" HorzAlign="Center" VertAlign="Center" Font="Georgia, 9pt, style=Bold"/>
+      <TextObject Name="hCognom" Left="190" Width="115" Height="26" Border.Lines="All" Text="Cognoms" HorzAlign="Center" VertAlign="Center" Font="Georgia, 9pt, style=Bold"/>
+      <TextObject Name="hEmail" Left="305" Width="155" Height="26" Border.Lines="All" Text="Email" HorzAlign="Center" VertAlign="Center" Font="Georgia, 9pt, style=Bold"/>
+      <TextObject Name="hTelefon" Left="460" Width="95" Height="26" Border.Lines="All" Text="Telèfon" HorzAlign="Center" VertAlign="Center" Font="Georgia, 9pt, style=Bold"/>
+      <TextObject Name="hData" Left="555" Width="125" Height="26" Border.Lines="All" Text="Data d'alta" HorzAlign="Center" VertAlign="Center" Font="Georgia, 9pt, style=Bold"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="135.23" Width="680.4" Height="28.35" EvenStyle="FilaParell" DataSource="JSON1">
+      <TableObject Name="Table1" Width="624.45" Height="18.9">
+        <TableColumn Name="Column1" Width="86.75"/>
+        <TableColumn Name="Column2" Width="96.2"/>
+        <TableColumn Name="Column3" Width="105.65"/>
+        <TableColumn Name="Column4" Width="115.1"/>
+        <TableColumn Name="Column6" Width="105.65"/>
+        <TableColumn Name="Column5" Width="115.1"/>
+      </TableObject>
+      <TextObject Name="Text11" Width="75.6" Height="18.9" Text="[JSON1.item.Dni]" VertAlign="Center" Font="Cambria, 9pt"/>
+      <TextObject Name="Text12" Left="94.5" Width="94.5" Height="18.9" Text="[JSON1.item.FirstName]" VertAlign="Center" Font="Cambria, 9pt"/>
+      <TextObject Name="Text13" Left="189" Width="103.95" Height="18.9" Text="[JSON1.item.LastName]" VertAlign="Center" Font="Cambria, 9pt"/>
+      <TextObject Name="Text14" Left="302.4" Width="151.2" Height="18.9" Text="[JSON1.item.Email]" VertAlign="Center" Font="Cambria, 9pt"/>
+      <TextObject Name="Text15" Left="463.05" Width="85.05" Height="18.9" Text="[JSON1.item.Phone]" VertAlign="Center" Font="Cambria, 9pt"/>
+      <TextObject Name="Text16" Left="557.55" Width="94.5" Height="18.9" Text="[DateTime.Parse([JSON1.item.DataAlta]).ToString(&quot;dd/MM/yyyy&quot;)]&#13;&#10;" VertAlign="Center" Font="Cambria, 9pt"/>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="166.25" Width="680.4" Height="37.8">
+      <TextObject Name="summLinia" Width="680" Height="3" Font="Arial, 10pt"/>
+      <TextObject Name="txtDataGen" Left="340" Top="15.45" Width="340" Height="20" Text="Vàlid fins al:  [DateTime.Now.ToString(&quot;dd/MM/yyyy&quot;)]" HorzAlign="Right" VertAlign="Center" Font="Cambria, 9pt"/>
+      <TextObject Name="txtTotal" Left="122.85" Top="15.45" Width="207.7" Height="20" Text="[TotalClients]" Padding="4, 0, 0, 0" VertAlign="Center" Font="Cambria, 9pt, style=Bold"/>
+      <TextObject Name="Text10" Top="9.45" Width="122.85" Height="28.35" Text="Total de clients: " VertAlign="Center" Font="Cambria, 10pt, style=Bold"/>
+    </ReportSummaryBand>
+    <PageFooterBand Name="PageFooter1" Top="206.72" Width="680.4" Height="22">
+      <TextObject Name="footLinia" Width="680" Height="3" Font="Arial, 10pt"/>
+      <TextObject Name="footEsquerra" Top="5" Width="340" Height="14" VertAlign="Center" Font="Cambria, 7pt"/>
+      <TextObject Name="footDreta" Left="340" Top="5" Width="330.55" Height="14" Text="Pag [Page] de [TotalPages#]" HorzAlign="Right" VertAlign="Center" Font="Cambria, 7pt"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

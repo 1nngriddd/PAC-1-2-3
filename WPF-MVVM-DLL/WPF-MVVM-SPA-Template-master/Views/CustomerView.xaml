@@ -1,0 +1,123 @@
+<UserControl x:Class="WPF_MVVM_SPA_Template.Views.CustomerView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d">
+
+    <Grid Background="{DynamicResource MainBackground}" Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Capçalera de la vista -->
+        <Border Grid.Row="0" Background="{StaticResource BrushVerdFosc}"
+                CornerRadius="6" Padding="16,10" Margin="0,0,0,12">
+            <TextBlock Text="Gestió de Clients"
+                       FontFamily="Georgia" FontSize="20"
+                       FontWeight="Bold"
+                       Foreground="{StaticResource BrushCremaFosc}"/>
+        </Border>
+
+        <!-- Taula de clients -->
+        <DataGrid Grid.Row="1"
+                  ItemsSource="{Binding Customers}"
+                  SelectedItem="{Binding SelectedCustomer}"
+                  IsReadOnly="True"
+                  AutoGenerateColumns="False"
+                  CanUserReorderColumns="False"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  ScrollViewer.VerticalScrollBarVisibility="Auto"
+                  Style="{StaticResource ModernDataGridStyle}">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id"
+                                    Binding="{Binding Id}"
+                                    Width="45"/>
+                <DataGridTextColumn Header="DNI"
+                                    Binding="{Binding Dni}"
+                                    Width="100"/>
+                <DataGridTextColumn Header="Nom"
+                                    Binding="{Binding FirstName}"
+                                    Width="1*"/>
+                <DataGridTextColumn Header="Cognoms"
+                                    Binding="{Binding LastName}"
+                                    Width="1*"/>
+                <DataGridTextColumn Header="Email"
+                                    Binding="{Binding Email}"
+                                    Width="2*"/>
+                <DataGridTextColumn Header="Telèfon"
+                                    Binding="{Binding Phone}"
+                                    Width="95"/>
+                <DataGridTextColumn Header="Data d'alta"
+                                    Binding="{Binding DataAlta, StringFormat=\{0:dd/MM/yyyy\}}"
+                                    Width="100"/>
+
+                <!-- Columna d'accions amb icones -->
+                <DataGridTemplateColumn Header="Accions" Width="90">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Margin="4,2">
+
+                                <!-- Botó EDITAR amb icona -->
+                                <Button Style="{StaticResource ModernEditButtonStyle}"
+                                        Command="{Binding DataContext.EditCustomerCommand,
+                                                  RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                        CommandParameter="{Binding}"
+                                        ToolTip="Editar client">
+                                    <Image Source="pack://application:,,,/Assets/editIcon.png"
+                                           Stretch="Uniform"
+                                           Width="16" Height="16"/>
+                                </Button>
+
+                                <!-- Botó ELIMINAR amb icona -->
+                                <Button Style="{StaticResource ModernEditButtonStyle}"
+                                        Margin="0"
+                                        Command="{Binding DataContext.DelCustomerCommand,
+                                                  RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                        CommandParameter="{Binding}"
+                                        ToolTip="Eliminar client">
+                                    <Image Source="pack://application:,,,/Assets/iconDelete.png"
+                                           Stretch="Uniform"
+                                           Width="16" Height="16"/>
+                                </Button>
+
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Botons inferiors -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal"
+                    HorizontalAlignment="Right" Margin="0,14,0,0">
+
+            <Button Content="Afegir Client"
+                    Command="{Binding AddCustomerCommand}"
+                    Style="{StaticResource ModernPrimaryButtonStyle}"/>
+
+            <Button Content="Veure Gràfica"
+                    Command="{Binding ViewStatisticsCommand}"
+                    CommandParameter="{Binding SelectedCustomer}"
+                    Style="{StaticResource ModernSecundaryButtonStyle}"/>
+
+   
+            <Button Content="⭐  Millor Client"
+                    Command="{Binding ShowBestCustomerCommand}"
+                    Style="{StaticResource ModernSecundaryButtonStyle}"
+                    ToolTip="Mostra el client amb més facturació acumulada"/>
+
+            <Button Content="📄  Exportar PDF"
+                    Command="{Binding ExportPdfCommand}"
+                    Style="{StaticResource ModernPrimaryButtonStyle}"
+                    ToolTip="Exporta el llistat de clients a PDF"/>
+
+        </StackPanel>
+    </Grid>
+</UserControl>
