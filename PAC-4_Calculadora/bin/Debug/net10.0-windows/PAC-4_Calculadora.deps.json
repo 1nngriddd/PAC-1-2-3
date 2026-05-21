@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "PAC-4_Calculadora/1.0.0": {
+        "runtime": {
+          "PAC-4_Calculadora.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "PAC-4_Calculadora/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
